@@ -1,0 +1,125 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  background-color: #262c37;
+  letter-spacing: 2px;
+  overflow: hidden;
+  transition: all 1s;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5),
+    -1px -1px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 1);
+  transform-origin: center;
+  box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.5),
+    1px 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.border {
+  display: block;
+  position: absolute;
+  background-color: var(--primary-color);
+}
+
+/* Left */
+.btn .border.border-left {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: all 0.35s;
+}
+
+.btn:hover .border.border-left {
+  animation: borderLeft 0.35s ease;
+  transform: translateY(0%);
+}
+
+@keyframes borderLeft {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* Bottom */
+.btn .border.border-bottom {
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  transform: translateX(100%);
+  transition: all 0.35s;
+}
+
+.btn:hover .border.border-bottom {
+  animation: borderBottom 0.35s ease;
+  transform: translateY(0%);
+}
+
+@keyframes borderBottom {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* Right */
+.btn .border.border-right {
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateY(100%);
+  transition: all 1s;
+}
+
+.btn:hover .border.border-right {
+  animation: borderRight 0.5s ease;
+  transform: translateY(0%);
+}
+
+@keyframes borderRight {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* Top */
+.btn .border.border-top {
+  right: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.btn:hover .border.border-top {
+  animation: borderTop 0.5s ease;
+  transform: translateX(0%);
+}
+
+@keyframes borderTop {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

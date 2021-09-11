@@ -1,0 +1,154 @@
+.filter__memory-filter {
+  list-style: none;
+  padding: 8px;
+
+  width: 100%;
+
+  display: none;
+  flex-flow: column nowrap;
+
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  z-index: 10;
+
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(0, 0, 0, 0.2);
+
+  border-radius: 5px;
+  animation: filter 0.5s ease;
+}
+
+.filter__memory-filter.clicked {
+  display: flex;
+}
+
+.filter__memory-filter::after {
+  display: block;
+  content: "";
+  position: absolute;
+
+  bottom: 100%;
+  left: 0%;
+  transform: translate(50%);
+
+  border-width: 8px 16px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.15) transparent;
+}
+
+@keyframes filter {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.filter__memory-filter > li {
+  width: 100%;
+  position: relative;
+
+  border-bottom: 1px solid #ccc;
+
+  padding: 8px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1rem;
+}
+
+.filter__memory-filter > li:last-child {
+  border-bottom: none;
+}
+
+.filter__memory-filter > li:hover > span {
+  color: tomato;
+}
+
+.filter__memory-filter > li > span {
+  font-size: 1rem;
+}
+
+.filter__memory-filter > li > i {
+  font-size: 12px;
+  color: #999;
+}
+
+.filter__memory-rom,
+.filter__memory-ram {
+  position: absolute;
+  left: calc(100% + 1rem);
+  top: -8px;
+  z-index: 10;
+
+  list-style: none;
+  padding: 8px;
+
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(0, 0, 0, 0.2);
+
+  display: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(0, 0, 0, 0.2);
+
+  animation: filterChild 0.35s linear alternate;
+}
+
+@keyframes filterChild {
+  from {
+    opacity: 0;
+    transform: translateX(-25%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.filter__memory-filter > li:hover .filter__memory-rom,
+.filter__memory-filter > li:hover .filter__memory-ram {
+  display: block;
+}
+
+.filter__memory-filter > li::before {
+  display: block;
+  content: "";
+
+  width: 10px;
+  height: 100%;
+  background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  left: calc(100% + 8px);
+}
+
+.filter__memory-rom > li,
+.filter__memory-ram > li {
+  width: 100%;
+  position: relative;
+
+  border-bottom: 1px solid #ccc;
+
+  padding: 8px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1rem;
+}
+
+.filter__memory-rom > li:last-child,
+.filter__memory-ram > li:last-child {
+  border-bottom: none;
+}
+
+.filter__memory-rom > li:hover,
+.filter__memory-ram > li:hover {
+  color: tomato;
+}

@@ -1,0 +1,40 @@
+.filter__phone {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.filter__phone > li {
+  padding: 8px 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  background-color: white;
+}
+
+.filter__phone-title {
+  font-size: 16px;
+  color: black;
+}
+
+.filter__phone > li > i {
+  margin-left: 16px;
+  display: inline-block;
+  width: 8px;
+}
+
+.filter__phone > li > i svg {
+  width: 100% !important;
+}

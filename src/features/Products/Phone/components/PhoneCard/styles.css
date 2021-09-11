@@ -1,0 +1,172 @@
+.phone-card {
+  padding: 16px;
+  margin: 0.5rem;
+
+  width: calc(100% / 5 - 1rem);
+
+  border: 1px solid #f3f3f3;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  background-color: white;
+}
+
+.phone-card:hover {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.phone-card__img:hover {
+  transform: translateY(-5%);
+}
+
+.phone-card__img {
+  width: 100%;
+  height: 225px;
+  transition: all 0.35s ease-in-out;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 0.5rem;
+}
+
+.phone-card__img > img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.phone-card__content {
+  margin-top: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.phone-card__title {
+  font-size: 1rem;
+  font-weight: bold;
+
+  color: #6b80f0;
+  text-transform: capitalize;
+
+  margin: 0.5rem 0;
+}
+
+.phone-card__color {
+  display: flex;
+  align-items: center;
+}
+
+.phone-card__color > span {
+  display: inline-block;
+
+  height: 1rem;
+  width: 1rem;
+
+  border: 1px solid #ccc;
+  border-radius: 50%;
+
+  margin-left: 1rem;
+}
+
+.phone-card__promotionPice,
+.phone-card__promotionPercent {
+  font-size: 14px;
+}
+
+.phone-card__promotionPice {
+  text-decoration: line-through;
+}
+
+.phone-card__promotion-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+
+  background-color: var(--primary-color);
+
+  padding: 4px 2px;
+
+  font-size: 0.8rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  text-align: center;
+}
+
+.phone-card__promotion-tag::before {
+  display: block;
+  content: "";
+
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+
+  border-color: var(--primary-color) var(--primary-color) transparent
+    var(--primary-color);
+  border-width: 0 16px 6px;
+  border-style: solid;
+}
+
+.phone-card__promotion-tag span {
+  color: tomato;
+  font-weight: bold;
+}
+
+.phone-card__promotion-tag strong {
+  color: white;
+  text-transform: uppercase;
+}
+
+.phone-card__freeship {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  z-index: 5;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  background-color: #64b5f6;
+  color: white;
+
+  padding: 2px;
+}
+
+.phone-card__freeship::after {
+  display: block;
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 100%;
+
+  border-top: 5px solid #64b5f6;
+  border-left: 5px solid transparent;
+  filter: brightness(50%);
+}
+
+.phone-card.phone-card--animation {
+  animation: addToCart 1.5s ease-in-out;
+}
+
+@keyframes addToCart {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0);
+  }
+  to {
+    opacity: 0;
+    background-color: black;
+    transform: translateX(100vw) scale(0.2);
+  }
+}

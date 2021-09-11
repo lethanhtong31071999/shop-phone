@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Redirect, Route, Switch } from "react-router";
+import AppBar from "./components/AppBar";
+import Footer from "./components/Footer";
+import CartFeature from "./features/Cart";
+import HistoryFeature from "./features/History";
+import PhonePage from "./features/Products/Phone";
+import LandingFeature from "features/Products/Landing/index";
+import PhoneDetail from "features/Products/Phone/pages/PhoneDetail/index";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar />
+      <Switch>
+        <Redirect path="/home" to="/" />
+
+        <Route exact path="/" component={LandingFeature} />
+        <Route path="/cart" component={CartFeature} />
+        <Route path="/history" component={HistoryFeature} />
+        <Route exact path="/phones" component={PhonePage} />
+        <Route path="/products/:id" component={PhoneDetail} />
+      </Switch>
+      {/* <Footer /> */}
     </div>
   );
 }
