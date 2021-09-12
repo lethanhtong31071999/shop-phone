@@ -59,6 +59,88 @@
   border-radius: 6px;
 
   background-color: white;
+
+  position: relative;
+  z-index: 20;
+}
+
+.header__top-search-suggestion {
+  display: none;
+
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+
+  background-color: white;
+
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5), -1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  border-radius: 5px;
+}
+
+.header__top-search-suggestion .header__top-search-suggestion-header {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: default;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__top-search-suggestion-header > i {
+  width: 2rem;
+  height: 2rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.header__top-search-suggestion-header > i > svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header__top-search-suggestion > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.header__top-search-suggestion.active {
+  display: block;
+}
+
+.header__top-search-suggestion > ul > li {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+
+  transition: all 0.35s ease-in-out;
+}
+
+.header__top-search-suggestion > ul > li:last-child {
+  border-bottom: none;
+}
+
+.header__top-search-suggestion > ul > li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: bold;
+}
+
+.header__top-search-suggestion > ul > li > span {
+  font-size: 16px;
+  max-lines: 1;
+
+  display: inline-block;
+  padding: 0.5rem 1rem;
 }
 
 .header__top-search > input {

@@ -60,6 +60,7 @@ function NavAppBar({ selectedMenu = null, onChange = null }) {
         <ul className="header__nav-list">
           {items.map((item) => (
             <li
+              key={item.id}
               className={findIdActive(item.id)}
               onClick={() => handleOnClickCategory(item.id)}
             >

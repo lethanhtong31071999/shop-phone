@@ -11,6 +11,7 @@ PhoneList.propTypes = {
 
 function PhoneList({ phones = [] }) {
   const history = useHistory();
+
   const handleOnClick = (phone) => {
     if (!phone.id) return;
     history.push(`products/${phone.id}`);

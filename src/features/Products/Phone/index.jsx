@@ -8,7 +8,9 @@ import phoneApi from "api/Phone/phoneApi";
 import Pagination from "components/Pagination/index";
 import Loading from "components/Loading/index";
 
-PhonePage.propTypes = {};
+PhonePage.propTypes = {
+  searchTerm: PropTypes.string,
+};
 
 const getColors = (products = []) => {
   if (products.length <= 0) return [];
@@ -39,7 +41,7 @@ const getColors = (products = []) => {
   return uniqueColorArr;
 };
 
-function PhonePage(props) {
+function PhonePage({ searchTerm = "" }) {
   const initialFilters = {
     _order: "desc",
     _sort: "salePrices",
@@ -51,6 +53,15 @@ function PhonePage(props) {
   const [pagination, setPagination] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [colors, setColors] = useState([]);
+  // Search filter
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilters({ ...initialFilters });
+    } else {
+      setFilters({ ...initialFilters, name_like: searchTerm });
+    }
+  }, [searchTerm]);
+
   useEffect(() => {
     try {
       (async () => {

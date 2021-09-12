@@ -31,11 +31,11 @@
 }
 
 .detail__left {
-  flex: 1;
+  width: 50%;
 }
 
 .detail__right {
-  flex: 1;
+  width: 50%;
 }
 
 .detail__right-wrapper {
@@ -118,4 +118,112 @@
   object-position: center;
 
   border-radius: 15px;
+}
+
+.detail__right-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.detail__right-info {
+  padding-bottom: 1rem;
+}
+
+.detail__right-info > h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.detail__right-info > p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.detail__right-color {
+  display: flex;
+  font-size: 1rem;
+  color: black;
+  align-items: center;
+}
+
+.detail__right-color-item {
+  margin-left: 1rem;
+  border-radius: 50%;
+}
+
+.detail__right-price {
+  margin-bottom: 1rem;
+}
+
+.phone-card__price > strong {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.detail__right-sold {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.detail__right-sold > strong {
+  font-weight: 500;
+}
+
+.detail__right-sold > span {
+  font-weight: bold;
+}
+
+.detail__right-action {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail__right-action > button {
+  outline: none;
+  border: none;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  text-align: center;
+
+  padding: 1rem;
+
+  width: 45%;
+
+  background-color: wheat;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease-in;
+}
+
+.detail__right-action .detail__btn-cart:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+
+  color: black;
+}
+
+.detail__right-action .detail__btn-buy:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.detail__right-action .detail__btn-buy {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 2px solid black;
+}
+
+.detail__right-action .detail__btn-cart {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
 }

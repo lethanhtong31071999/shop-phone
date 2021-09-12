@@ -1,23 +1,39 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "../../../../app/css/base.css";
-import "./css/styles.css";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router-dom";
+import "../../../../app/css/base.css";
+import SearchTermNav from "./components/SearchTerm/index";
+import "./css/styles.css";
 
 TopAppBar.propTypes = {
   onChange: PropTypes.func,
+  onSearch: PropTypes.func,
 };
 
-function TopAppBar({ onChange = () => {} }) {
+TopAppBar.defaultProps = {
+  onChange: null,
+  onSearch: null,
+  openModal: null,
+};
+
+function TopAppBar(props) {
+  const { onNavChange, onSearch, openModal } = props;
+
   return (
     <div className="container-fluid header__top ">
       <div className="container">
         <ul className="header__top-list">
           <li>
             <a href="#!">
-              <Link to="/" onClick={() => onChange(null)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  if (!onNavChange) return;
+                  onNavChange(null);
+                }}
+              >
                 <h1 className="header__top-logo">Shopping</h1>
               </Link>
             </a>
@@ -25,14 +41,7 @@ function TopAppBar({ onChange = () => {} }) {
           <li>
             <a href="#!">
               <div className="header__top-action">
-                <div className="header__top-search">
-                  <input
-                    type="text"
-                    name="main-search"
-                    placeholder="Bạn tìm gì..."
-                  />
-                  <FontAwesomeIcon icon={faSearch} />
-                </div>
+                <SearchTermNav onSearch={onSearch} openModal={openModal} />
                 <Link to="/cart">
                   <div className="header__top-cart">
                     <FontAwesomeIcon icon={faCartPlus} />

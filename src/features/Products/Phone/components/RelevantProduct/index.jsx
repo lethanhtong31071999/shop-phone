@@ -57,8 +57,8 @@ function RelevantProduct({ otherProducts = [], onClick = () => {} }) {
           {otherProducts.map((product, i) => (
             <li className="relevant__item" key={product.id}>
               <img src={product.imageUrl[0]} alt={product.name} />
-              <div>
-                <span onClick={() => onClick(product?.id)}>Chi tiết</span>
+              <div onClick={() => onClick(product?.id)}>
+                <span>Chi tiết</span>
               </div>
             </li>
           ))}
