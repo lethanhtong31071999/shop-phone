@@ -1,16 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
 
 const initialState = {
   // id === product.id
   isShowMiniCart: false,
   totalProducts: 0,
-  cartItems: [
-    {
-      id: null,
-      product: {},
-      quantity: null,
-    },
-  ],
+  cartItems: [],
 };
 
 const cartSlice = createSlice({
@@ -31,22 +26,32 @@ const cartSlice = createSlice({
           id,
           product,
           quantity,
+          checked: true,
         });
       }
     },
 
     removeProductFormCart(state, action) {
-      const id = Number.parseInt(action.payload) || null;
-      state.cartItems.filter((product) => product.id !== id);
+      const id = action.payload || null;
+      state.cartItems = state.cartItems.filter((product) => product.id !== id);
     },
 
     setQuantityForProduct(state, action) {
-      const { id, quantity } = action.payload;
       const productIndex = state.cartItems.findIndex(
-        (product) => product.id === id
+        (product) => product.id === action.payload.id
       );
       if (productIndex >= 0) {
-        state.cartItems[productIndex].product.quantity = quantity;
+        state.cartItems[productIndex].quantity = Number.parseInt(
+          action.payload.quantity
+        );
+      }
+    },
+
+    setSelectedProduct(state, action) {
+      const { id, value } = action.payload;
+      const index = state.cartItems.findIndex((product) => product.id === id);
+      if (index >= 0) {
+        state.cartItems[index].checked = value;
       }
     },
 
@@ -59,9 +64,8 @@ const cartSlice = createSlice({
     },
 
     setTotalProduct(state) {
-      const products = state.cartItems;
-      const total = products.reduce((result, current) => {
-        return result + current.quantity;
+      const total = state.cartItems.reduce((result, current) => {
+        return result + Number.isInteger(current.quantity);
       }, 0);
       state.totalProducts = total;
     },
@@ -75,6 +79,6 @@ export const {
   removeProductFormCart,
   setHideMiniCart,
   setShowMiniCart,
-  setTotalProduct,
+  setSelectedProduct,
 } = actions;
 export default reducer;

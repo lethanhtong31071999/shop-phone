@@ -13,10 +13,10 @@ import { NavLink } from "react-router-dom";
 
 NavAppBar.propTypes = {
   selectedMenu: PropTypes.number,
-  onChange: PropTypes.func,
+  onNavChange: PropTypes.func,
 };
 
-function NavAppBar({ selectedMenu = null, onChange = null }) {
+function NavAppBar({ selectedMenu = null, onNavChange = null }) {
   const items = [
     {
       id: 1,
@@ -44,14 +44,14 @@ function NavAppBar({ selectedMenu = null, onChange = null }) {
     },
   ];
 
-  const findIdActive = (id) => {
-    if (id === selectedMenu) return "active";
-    return "";
+  const isActive = (id) => {
+    if (id === selectedMenu) return true;
+    return false;
   };
 
   const handleOnClickCategory = (id) => {
-    if (!onChange) return;
-    onChange(id);
+    if (!onNavChange) return;
+    onNavChange(id);
   };
 
   return (
@@ -61,7 +61,11 @@ function NavAppBar({ selectedMenu = null, onChange = null }) {
           {items.map((item) => (
             <li
               key={item.id}
-              className={findIdActive(item.id)}
+              className={
+                isActive(item.id)
+                  ? "header__nav-item active"
+                  : "header__nav-item"
+              }
               onClick={() => handleOnClickCategory(item.id)}
             >
               <NavLink to={item.link} key={item.id}>

@@ -15,7 +15,7 @@ function AppBar({ onSearchSubmit = null, openModal = () => {} }) {
   const [selectedMenu, setSelectedMenu] = useState(initailState);
 
   const handleOnChange = (selectedMenu) => {
-    if (Number.isInteger(selectedMenu)) setSelectedMenu(selectedMenu);
+    if (Number.isInteger(selectedMenu) >= 0) setSelectedMenu(selectedMenu);
     else setSelectedMenu(initailState);
   };
 
@@ -27,7 +27,7 @@ function AppBar({ onSearchSubmit = null, openModal = () => {} }) {
   return (
     <header>
       <TopAppBar
-        onChange={handleOnChange}
+        onNavChange={handleOnChange}
         onSearch={handleOnSearch}
         openModal={(value) => openModal(value)}
       />

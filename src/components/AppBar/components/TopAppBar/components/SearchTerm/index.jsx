@@ -7,7 +7,6 @@ import {
 } from "../../../../../../../node_modules/@fortawesome/free-solid-svg-icons/index";
 import productApi from "api/productApi";
 import { useHistory } from "react-router";
-import Loading from "components/Loading/index";
 
 SearchTermNav.propTypes = {
   onChange: PropTypes.func,
@@ -17,7 +16,7 @@ SearchTermNav.propTypes = {
 const initialSuggestions = ["Iphone", "Xiao mi", "Oppo"];
 
 function SearchTermNav(props) {
-  const { onSearch = null, openModal = null } = props;
+  const { onSearch = null } = props;
   const history = useHistory();
 
   const [searchValue, setSearchValue] = useState("");
@@ -49,20 +48,18 @@ function SearchTermNav(props) {
     if (!onSearch) return;
 
     onSearch(searchValue);
-    openModal(false);
     setIsShowSuggestion(false);
     history.push("/phones");
   };
 
   const onInputFiledChange = (e) => {
+    e.preventDefault();
     const value = e.target.value;
     setSearchValue(value);
   };
 
-  const handleInputFiledClick = (e, modalValue, fieldValue = "") => {
+  const handleInputFiledClick = (e, fieldValue = "") => {
     e.stopPropagation();
-    const newState = modalValue;
-    openModal(newState);
     setIsShowSuggestion(true);
 
     if (fieldValue.trim() === "") return;
@@ -78,14 +75,17 @@ function SearchTermNav(props) {
 
   return (
     <form className="header__top-search" onSubmit={handleOnSubmit}>
-      <input
-        type="text"
-        name="main-search"
-        placeholder="Bạn tìm gì..."
-        value={searchValue}
-        onChange={onInputFiledChange}
-        onClick={(e) => handleInputFiledClick(e, true)}
-      />
+      <a href="#modal-search">
+        <input
+          type="text"
+          name="main-search"
+          placeholder="Bạn tìm gì..."
+          value={searchValue}
+          onInput={onInputFiledChange}
+          onClick={(e) => handleInputFiledClick(e)}
+          id="search_nav"
+        />
+      </a>
       <button
         type="submit"
         style={{
@@ -106,13 +106,13 @@ function SearchTermNav(props) {
       >
         <div className="header__top-search-suggestion-header">
           <p>Kết quả tìm kiếm: </p>
-          <i onClick={(e) => handleInputFiledClick(e, false, "close")}>
+          <i onClick={(e) => handleInputFiledClick(e, "close")}>
             <FontAwesomeIcon icon={faTimes} />
           </i>
         </div>
         <ul>
           {sugesstions.map((item) => (
-            <li onClick={(e) => handleInputFiledClick(e, false, item)}>
+            <li onClick={(e) => handleInputFiledClick(e, item)}>
               <span>{item}</span>
             </li>
           ))}

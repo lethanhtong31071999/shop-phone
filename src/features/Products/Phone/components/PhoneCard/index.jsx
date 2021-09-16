@@ -5,7 +5,7 @@ import FancyButton from "components/FancyButton/index";
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { addToCart, setTotalProduct } from "features/Cart/cartSlice";
+import { addToCart } from "features/Cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 PhoneCard.propTypes = {
@@ -19,8 +19,6 @@ const placeholderImgUrl =
 function PhoneCard({ phone = {}, onClick = null }) {
   const isPromotion = phone.isPromotion || false;
   const isFreeShip = phone.isFreeShip || false;
-  const [isAnimated, setIsAnimated] = useState(false);
-  const ref = useRef(null);
   const dispatch = useDispatch();
 
   const handleOnClickCard = (e) => {
@@ -37,26 +35,10 @@ function PhoneCard({ phone = {}, onClick = null }) {
     };
     const action = addToCart(product);
     dispatch(action);
-    dispatch(setTotalProduct());
-
-    // Animation fly to cart icon
-    setIsAnimated(true);
-
-    ref.current = setTimeout(() => {
-      setIsAnimated(false);
-    }, 3000);
   };
 
-  useEffect(() => {
-    return () => {
-      clearTimeout(ref.current);
-    };
-  }, []);
-
   return (
-    <li
-      className={isAnimated ? "phone-card phone-card--animation" : "phone-card"}
-    >
+    <li className={"phone-card"}>
       {isFreeShip ? (
         <span className="phone-card__freeship">Free Ship</span>
       ) : null}
@@ -96,7 +78,10 @@ function PhoneCard({ phone = {}, onClick = null }) {
         ) : null}
         <h4 className="phone-card__price">{phone.salePrices} USD</h4>
         <div style={{ flexShrink: 0, marginTop: "auto" }}>
-          <FancyButton title="Add to Cart" onClick={(e) => handleClickBtn(e)} />
+          <FancyButton
+            title="Thêm sản phẩm"
+            onClick={(e) => handleClickBtn(e)}
+          />
         </div>
       </div>
     </li>

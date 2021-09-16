@@ -1,0 +1,134 @@
+.cart__summary {
+  width: 100%;
+}
+
+.cart__summary-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.cart__summary-address-title {
+  font-size: 1rem;
+  color: #999;
+}
+
+.cart__summary-address-value {
+  display: flex;
+}
+
+.cart__summary-address-value > i {
+  margin-right: 1rem;
+}
+
+.cart__summary-address-value > i > svg {
+  color: #999;
+}
+
+.cart__summary-address-value > p {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.cart__summary-content {
+  margin-top: 1rem;
+}
+
+.cart__summary-content-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.cart__summary-coupon,
+.cart__summary-content-title,
+.cart__summary-content-estimate,
+.cart__summary-content-ship,
+.cart__summary-content-total {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart__summary-subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+.cart__summary-price {
+  font-size: 1rem;
+  color: black;
+}
+
+.cart__summary-total-items {
+  color: black;
+  font-size: 1rem;
+}
+
+.cart__summary-total-price {
+  color: tomato;
+  font-size: 1rem;
+}
+
+.cart__summary-vat {
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: black;
+
+  margin-bottom: 1rem;
+}
+
+.cart__summary-coupon {
+  display: flex;
+}
+
+.cart__summary-coupon > input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+
+  outline: none;
+
+  border: 1px solid #999;
+}
+
+.cart__summary-coupon > input:focus {
+  border-color: #1a9cb7;
+}
+
+.btn-cart {
+  padding: 0.8rem 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.cart__summary-coupon > button {
+  width: 100px;
+
+  margin-left: 0.5rem;
+
+  text-transform: uppercase;
+
+  color: white;
+  background-color: #1a9cb7;
+
+  border: 1px solid #1a9cb7;
+}
+
+.cart__summary-coupon > button:hover {
+  opacity: 0.8;
+}
+
+.btn-confirm {
+  width: 100%;
+  color: white;
+  background: linear-gradient(to top, rgba(255, 99, 71, 0.8), tomato);
+
+  text-transform: uppercase;
+}
+
+.btn-confirm:hover {
+  background-color: tomato;
+}

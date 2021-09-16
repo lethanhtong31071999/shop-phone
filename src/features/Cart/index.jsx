@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import CartPage from "./pages/CartList/CartPage";
 
 CartFeature.propTypes = {};
 
 function CartFeature(props) {
-  return (
-    <div>
-      <h1>Cart Feature</h1>
-    </div>
-  );
+  return <CartPage />;
 }
 
 export default CartFeature;

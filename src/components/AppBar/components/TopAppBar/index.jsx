@@ -8,18 +8,17 @@ import SearchTermNav from "./components/SearchTerm/index";
 import "./css/styles.css";
 
 TopAppBar.propTypes = {
-  onChange: PropTypes.func,
+  onNavChange: PropTypes.func,
   onSearch: PropTypes.func,
 };
 
 TopAppBar.defaultProps = {
-  onChange: null,
+  onNavChange: null,
   onSearch: null,
-  openModal: null,
 };
 
 function TopAppBar(props) {
-  const { onNavChange, onSearch, openModal } = props;
+  const { onNavChange, onSearch } = props;
 
   return (
     <div className="container-fluid header__top ">
@@ -31,7 +30,7 @@ function TopAppBar(props) {
                 to="/"
                 onClick={() => {
                   if (!onNavChange) return;
-                  onNavChange(null);
+                  onNavChange(-1);
                 }}
               >
                 <h1 className="header__top-logo">Shopping</h1>
@@ -41,7 +40,7 @@ function TopAppBar(props) {
           <li>
             <a href="#!">
               <div className="header__top-action">
-                <SearchTermNav onSearch={onSearch} openModal={openModal} />
+                <SearchTermNav onSearch={onSearch} />
                 <Link to="/cart">
                   <div className="header__top-cart">
                     <FontAwesomeIcon icon={faCartPlus} />

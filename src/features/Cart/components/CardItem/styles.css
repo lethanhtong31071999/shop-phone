@@ -1,0 +1,145 @@
+.cart__item {
+  padding: 0.7rem;
+
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px dotted #ccc;
+}
+
+.cart__item:last-child {
+  border-bottom: none;
+}
+
+.cart__card-body {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.cart__card-info {
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  align-items: stretch;
+}
+
+.cart__card-img {
+  flex-shrink: 0;
+
+  margin-right: 1rem;
+
+  width: 80px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+.cart__card-img > img {
+  width: 80px;
+  height: 80px;
+}
+
+.cart__card-content {
+  margin-right: 1rem;
+}
+
+.cart__card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+
+  text-transform: capitalize;
+}
+
+.cart__card-description {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: start;
+}
+
+.cart__card-promotion {
+  display: inline-block;
+  padding: 0.2rem 0.3rem;
+
+  border-radius: 5px;
+  color: white;
+  background: linear-gradient(45deg, #ff7094, #f10653);
+
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  margin-top: 0.5rem;
+}
+
+.cart__card-action {
+  width: 40%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cart__card-action-right,
+.cart__card-action-left {
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.cart__card-price {
+  font-size: 1rem;
+  color: tomato;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cart__btn-remove {
+  text-align: center;
+}
+
+.cart__btn-remove:hover > svg {
+  cursor: pointer;
+  color: tomato;
+}
+
+.cart__btn-remove > svg {
+  color: #999;
+}
+
+.cart__card-action-right {
+  display: flex;
+  align-items: stretch;
+}
+
+.cart__btn {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cart__btn,
+.cart__quanitty-filed {
+  width: calc(100% / 3);
+  cursor: pointer;
+}
+
+.cart__quanitty-filed:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+.cart__quanitty-filed {
+  border: none;
+  text-align: center;
+}
+
+.cart__btn.disabled {
+  opacity: 0.5;
+  cursor: default;
+}

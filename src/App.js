@@ -8,24 +8,17 @@ import PhonePage from "./features/Products/Phone";
 import LandingFeature from "features/Products/Landing/index";
 import PhoneDetail from "features/Products/Phone/pages/PhoneDetail/index";
 import { useState } from "react";
-import Modal from "components/Modal/index";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isShowModal, setIsShowModal] = useState(false);
 
   const handleOnSearch = (filterSearch) => {
     setSearchTerm(filterSearch);
   };
 
-  const handleOpenModal = (value) => {
-    setIsShowModal(value);
-  };
-
   return (
     <div className="App">
-      <Modal isShowModal={isShowModal} openModal={handleOpenModal} />
-      <AppBar onSearchSubmit={handleOnSearch} openModal={handleOpenModal} />
+      <AppBar onSearchSubmit={handleOnSearch} />
       <Switch>
         <Redirect path="/home" to="/" />
 
