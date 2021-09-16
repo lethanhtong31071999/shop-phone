@@ -4,8 +4,8 @@ const configAxios = {
   headers: {
     "Content-Type": "application/json",
   },
-  baseURL: "http://localhost:8000",
-  // baseURL: "https://ltt-json-server.herokuapp.com",
+  // baseURL: "http://localhost:8000",
+  baseURL: "https://ltt-json-server.herokuapp.com",
 };
 
 // Create instance axios
